@@ -1,0 +1,25 @@
+{
+  "name": "peaky-blinders",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cphtml": "cp src/index.html dist/",
+    "sass": "sass src/assets/scss:src/assets/css",
+    "sassw": "sass src/assets/scss:src/assets/css -w",
+    "build": "npm-run-all cphtml sass"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mhdi-hoseini/Peaky-Blinders.git"
+  },
+  "author": "Mahdi Hoseini",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mhdi-hoseini/Peaky-Blinders/issues"
+  },
+  "homepage": "https://github.com/Mhdi-hoseini/Peaky-Blinders#readme",
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
