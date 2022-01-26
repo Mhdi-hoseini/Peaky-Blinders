@@ -1,0 +1,11 @@
+.select {
+  @include bg-img('/dist/assets/media/download-done.svg');
+}
+.bounce {
+  animation: bounce 2s infinite;
+  -moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+}
+.seasons--show {
+  @include flex();
+}

@@ -1,0 +1,120 @@
+/* ## content module
+   --------------------------------------------------------------------- */
+
+// appearance
+
+.content {
+  flex: none;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  scroll-snap-align: start;
+  background-color: $color__dark;
+
+  .tab {
+    &__item {
+      display: inline-block;
+    }
+    &__content {
+      width: 92px;
+      height: 32px;
+      margin-top: 4px;
+      line-height: 32px;
+      display: inline-block;
+      color: $color__light;
+      text-align: center;
+      cursor: pointer;
+      @include typography('label-s');
+    }
+    &--active {
+      border-radius: em(14);
+      background-color: rgba(124, 124, 124, 0.5);
+    }
+  }
+
+  .storyline {
+    width: 80%;
+    line-height: 1.5;
+    text-align: justify;
+    color: $color__gray;
+    @include typography('txt');
+  }
+
+  .seasons {
+    margin: 2em auto;
+    padding-left: 8px;
+
+    &__container {
+      margin: 0 auto;
+      position: relative;
+    }
+
+    &__poster {
+      width: 250px;
+      height: 140px;
+      border-radius: 16px;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    @include trans-button('&__play-btn', '/dist/assets/media/ico-play.svg');
+    @include trans-button('&__pause-btn', '/dist/assets/media/ico-pause.svg');
+
+    &__download-btn {
+      top: 10%;
+      right: 5%;
+      width: 36px;
+      height: 36px;
+      z-index: 1;
+      position: absolute;
+      border: none;
+      outline: none;
+      border-radius: em(36);
+      @include bg-img('/dist/assets/media/download.svg');
+    }
+    &__label {
+      left: 16px;
+      bottom: 16px;
+      position: absolute;
+      color: $color__light;
+      @include typography('label-s');
+    }
+  }
+
+  // layout
+
+  @include media(phone) {
+    .tab {
+      width: 80vw;
+      margin: 2em auto;
+    }
+    .storyline{
+      margin: 2em auto;
+    }
+    .seasons {
+      width: 100%;
+      margin-bottom: 2em;
+      overflow-y: scroll;
+      flex-direction: column;
+
+      &__poster {
+        width: 80vw;
+        height: auto;
+      }
+    }
+  }
+  @include media(custom, 576px) {
+    .tab {
+      margin: em(32) 5%;
+    }
+    .storyline{
+      margin: 2em 5%;
+    }
+    .seasons {
+      overflow-x: scroll;
+      margin-left: 5%;
+      padding-right: 16px;
+      padding-bottom: 16px;
+    }
+  }
+}
