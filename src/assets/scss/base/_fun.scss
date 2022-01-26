@@ -1,0 +1,6 @@
+/* ## Functions
+   --------------------------------------------------------------------- */
+
+@function em($pixels, $context: 16) {
+  @return #{calc($pixels / $context)}em;
+}

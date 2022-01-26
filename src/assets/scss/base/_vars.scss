@@ -1,0 +1,30 @@
+/* ## Variables
+   --------------------------------------------------------------------- */
+
+//  Colors
+$color__primary: #fff000;
+$color__secondary: #00ff6f;
+$color__secondary--beta: #0011ff;
+$color__secondary--gamma: #ff0091;
+$color__dark: #000000;
+$color__dark--500: #121100;
+$color__gray: #b9b9b9;
+$color__light: #ffffff;
+$color__light--500: #fffeed;
+
+// Typography
+$font-url--google: 'https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap';
+$font-family: 'Quicksand';
+$font-family--secondary: sans-serif;
+$font-sizes: (
+  48: 48px,
+  38: 38px,
+  18: 18px,
+  16: 16px,
+  14: 14px,
+  12: 12px,
+);
+$font-weights: (
+  'normal': 400,
+  'bold': 700,
+);
