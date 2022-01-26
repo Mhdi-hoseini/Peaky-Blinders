@@ -4,7 +4,133 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/app.js" defer></script>
     <title>Peaky Blinders</title>
   </head>
-  <body></body>
+  <body class="full-screen">
+    <header class="hero full-screen">
+      <div class="hero__frame--title">
+        <ul class="tag">
+          <li class="tag__item">
+            <span class="tag__content">series</span>
+          </li>
+          <li class="tag__item">
+            <span class="tag__content">Crime</span>
+          </li>
+          <li class="tag__item">
+            <span class="tag__content">Drama</span>
+          </li>
+        </ul>
+        <h1 class="title">Peaky Blinders</h1>
+        <div class="imdb">
+          <span class="imdb__logo">IMDb</span>
+          <span class="imdb__rate">8.8</span>
+        </div>
+      </div>
+      <div class="hero__frame--info">
+        <div class="col">
+          <span class="head">Release</span>
+          <span class="body">2013 - ?</span>
+        </div>
+        <div class="col">
+          <span class="head">Company</span>
+          <span class="body">BBC Studios</span>
+        </div>
+        <div class="col">
+          <span class="head">Total</span>
+          <span class="body">30 Episodes</span>
+        </div>
+      </div>
+      <button class="scroller bounce"></button>
+    </header>
+    <main class="content">
+      <ul class="tab">
+        <li class="tab__item">
+          <span id="tabStoryline" class="tab__content tab--active">
+            storyline
+          </span>
+        </li>
+        <li class="tab__item">
+          <span id="tabSeasons" class="tab__content">seasons</span>
+        </li>
+      </ul>
+      <p class="storyline">
+        Thomas Shelby and his brothers return to Birmingham after serving in the
+        British Army during WWI. Shelby and the Peaky Blinders, the gang he is
+        leader of, control the city of Birmingham But as Shelby's ambitions
+        extend beyond Birmingham, he plans to build on the business empire he's
+        created, and stop anyone who gets in his way.
+      </p>
+      <section class="seasons" hidden>
+        <div class="seasons__container">
+          <video
+            src="/assets/media/s1.mp4"
+            poster="/assets/media/s1.jpg"
+            class="seasons__poster"
+          ></video>
+          <button class="seasons__play-btn" type="button"></button>
+          <button class="seasons__pause-btn" type="button" hidden></button>
+          <!-- <button class="seasons__download-btn" type="button"></button> -->
+          <span class="seasons__label">Season 1</span>
+        </div>
+        <div class="seasons__container">
+          <video
+            src="/assets/media/s2.mp4"
+            poster="/assets/media/s2.jpg"
+            class="seasons__poster"
+          ></video>
+          <button class="seasons__play-btn" type="button"></button>
+          <button class="seasons__pause-btn" type="button" hidden></button>
+          <!-- <button class="seasons__download-btn" type="button"></button> -->
+          <span class="seasons__label">Season 2</span>
+        </div>
+        <div class="seasons__container">
+          <video
+            src="/assets/media/s3.mp4"
+            poster="/assets/media/s3.jpg"
+            class="seasons__poster"
+          ></video>
+          <button class="seasons__play-btn" type="button"></button>
+          <button class="seasons__pause-btn" type="button" hidden></button>
+          <!-- <button class="seasons__download-btn" type="button"></button> -->
+          <span class="seasons__label">Season 3</span>
+        </div>
+        <div class="seasons__container">
+          <video
+            src="/assets/media/s4.mp4"
+            poster="/assets/media/s4.jpg"
+            class="seasons__poster"
+          ></video>
+          <button class="seasons__play-btn" type="button"></button>
+          <button class="seasons__pause-btn" type="button" hidden></button>
+          <!-- <button class="seasons__download-btn" type="button"></button> -->
+          <span class="seasons__label">Season 4</span>
+        </div>
+        <div class="seasons__container">
+          <video
+            src="/assets/media/s5.mp4"
+            poster="/assets/media/s5.jpg"
+            class="seasons__poster"
+          ></video>
+          <button class="seasons__play-btn" type="button"></button>
+          <button class="seasons__pause-btn" type="button" hidden></button>
+          <!-- <button class="seasons__download-btn" type="button"></button> -->
+          <span class="seasons__label">Season 5</span>
+        </div>
+      </section>
+    </main>
+    <section class="popup"></section>
+
+    <!-- set height dynamicly for sove vh unit issue in mobile -->
+    <script>
+      const size = () => {
+        for (const el of document.querySelectorAll('.full-screen')) {
+          el.setAttribute('style', `height:${window.innerHeight}px;`);
+        }
+      };
+      size();
+      if (window.innerWidth > 500) window.addEventListener('resize', size);
+    </script>
+  </body>
 </html>

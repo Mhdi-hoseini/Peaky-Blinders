@@ -1,0 +1,7 @@
+/* ## Conditional styles
+   --------------------------------------------------------------------- */
+
+// Import google font if defined
+@if variable-exists(font-url--google) {
+  @import url($font-url--google);
+}

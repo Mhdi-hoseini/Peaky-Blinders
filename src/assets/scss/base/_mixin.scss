@@ -1,0 +1,157 @@
+/* ## Mixins
+   --------------------------------------------------------------------- */
+
+// Import internal font
+@mixin font-face(
+  $name,
+  $weight,
+  $url-eot,
+  $url-ttf: null,
+  $url-woff: null,
+  $url-woff2: null
+) {
+  // generate src for existing formats
+  $src: url($url-eot) format('eot');
+  @if $url-ttf {
+    $src: $src, url($url-ttf) format('ttf');
+  }
+  @if $url-woff {
+    $src: $src, url($url-woff) format('woff');
+  }
+  @if $url-woff2 {
+    $src: $src, url($url-woff2) format('woff2');
+  }
+
+  // generate font face
+  @font-face {
+    src: $src;
+    font-family: $name;
+    font-weight: $weight;
+    font-display: swap;
+  }
+}
+
+// Implementaion typography
+@mixin typography($type) {
+  @if $type == 'h1-l' {
+    font-size: map-get($map: $font-sizes, $key: 48);
+    font-weight: map-get($map: $font-weights, $key: 'bold');
+  } @else if $type == 'h1-s' {
+    font-size: map-get($map: $font-sizes, $key: 38);
+    font-weight: map-get($map: $font-weights, $key: 'bold');
+  } @else if $type == 'txt' {
+    font-size: map-get($map: $font-sizes, $key: 18);
+    font-weight: map-get($map: $font-weights, $key: 'normal');
+  } @else if $type == 'txt-b' {
+    font-size: map-get($map: $font-sizes, $key: 18);
+    font-weight: map-get($map: $font-weights, $key: 'bold');
+  } @else if $type == 'label' {
+    font-size: map-get($map: $font-sizes, $key: 16);
+    font-weight: map-get($map: $font-weights, $key: 'normal');
+  } @else if $type == 'label-b' {
+    font-size: map-get($map: $font-sizes, $key: 16);
+    font-weight: map-get($map: $font-weights, $key: 'bold');
+  } @else if $type == 'label-s' {
+    font-size: map-get($map: $font-sizes, $key: 14);
+    font-weight: map-get($map: $font-weights, $key: 'noraml');
+  } @else if $type == 'label-s-b' {
+    font-size: map-get($map: $font-sizes, $key: 14);
+    font-weight: map-get($map: $font-weights, $key: 'bold');
+  }
+}
+
+// Implementaion flexbox
+@mixin flex(
+  $wrap: nowrap,
+  $dir: row,
+  $gap: 16px,
+  $justify-content: null,
+  $align-items: null
+) {
+  display: flex;
+  flex-flow: $wrap $dir;
+  gap: $gap;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+// Implementaion media queries
+@mixin media($type, $min: null, $max: null) {
+  @if $type == phone {
+    @media screen and (min-width: 1px) and (max-width: 576px) {
+      @content;
+    }
+  } @else if $type == tablet-portrait {
+    @media screen and (min-width: 576px) and (max-width: 768px) {
+      @content;
+    }
+  } @else if $type == tablet-landscape {
+    @media screen and (min-width: 768px) and (max-width: 992px) {
+      @content;
+    }
+  } @else if $type == desktop {
+    @media screen and (min-width: 992px) {
+      @content;
+    }
+  } @else if $type == large-desktop {
+    @media screen and (min-width: 1200px) {
+      @content;
+    }
+  } @else if $type == custom {
+    @if $max == null {
+      @media screen and (min-width: $min) {
+        @content;
+      }
+    } @else {
+      @media screen and (min-width: $min) and (max-width: $max) {
+        @content;
+      }
+    }
+  }
+}
+
+// Hide scrollbar
+@mixin hide-scrollbar {
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// Background img
+@mixin bg-img($url, $pos: center) {
+  background: url($url);
+  background-size: cover;
+  background-position: $pos;
+  background-repeat: no-repeat;
+}
+
+// Transparent Button
+@mixin trans-button($selector, $url) {
+  #{$selector} {
+    top: 50%;
+    left: 50%;
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    box-shadow: 0px 1px 1px rgb(0 0 0 / 20%);
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: translateX(-50%) translateY(-50%);
+
+    &::after {
+      content: url($url);
+      background-size: cover;
+      top: 50%;
+      left: 50%;
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
+}
